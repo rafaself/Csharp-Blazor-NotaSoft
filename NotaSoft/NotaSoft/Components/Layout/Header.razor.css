@@ -8,15 +8,11 @@
 	padding: 16px;
 }
 
-.header-1, .header-2 {
+.header-2 {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	height: 100%;
-}
-
-.header-1 {
-	gap: 16px;
 }
 
 .header-2 {

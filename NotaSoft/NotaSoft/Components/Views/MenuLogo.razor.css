@@ -1,4 +1,10 @@
-﻿.icon {
+﻿.menu-logo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.icon {
     cursor: pointer;
     height: 40px;
     width: 40px;
