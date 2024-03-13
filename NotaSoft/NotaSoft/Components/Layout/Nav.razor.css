@@ -1,11 +1,21 @@
 ﻿nav {
     position: absolute;
     top: 0px;
-    left: 0px;
+    left: -248px;
     height: 100vh;
     width: 248px;
-    border: 1px solid black;
+    border-right: 1px solid var(--color-primary-90);
     background-image: linear-gradient(var(--color-primary-30), var(--color-primary-30)), linear-gradient(#ffffff, #ffffff);
     padding: 8px 16px;
     transition: transform 0.15s ease;
+}
+
+#nav-oppacity {
+    position: absolute;
+    top: 0;
+    left: 248px;
+    width: calc(100vw - 248px);
+    height: 100vh;
+    background-color: #ffffff60;
+    display:none;
 }

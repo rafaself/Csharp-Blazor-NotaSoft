@@ -10,11 +10,27 @@
 </div>
 
 <script>
-	$("#menu-nav").on("click", () => {
-		$("#side-nav").css("transform", "translateX(-248px)");
-	});
-	$("#menu-header").on("click", () => {
+	function hideNav() {
 		$("#side-nav").css("transform", "translateX(0)");
+		$("#nav-oppacity").css("display", "none");
+	}
+
+	function showNav() {
+		$("#side-nav").css("transform", "translateX(248px)");
+		$("#nav-oppacity").css("display", "block");
+	}
+
+	// If click on nav oppacity hide nav
+	$("#nav-oppacity").on("click", () => {
+		hideNav();
+	})
+	// Hide side nav
+	$("#menu-nav").on("click", () => {
+		hideNav();
+	});
+	// Show side nav
+	$("#menu-header").on("click", () => {
+		showNav();
 	});
 </script>
 
