@@ -7,4 +7,5 @@
     border: 1px solid black;
     background-image: linear-gradient(var(--color-primary-30), var(--color-primary-30)), linear-gradient(#ffffff, #ffffff);
     padding: 8px 16px;
+    transition: transform 0.15s ease;
 }

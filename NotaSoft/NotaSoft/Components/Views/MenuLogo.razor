@@ -1,5 +1,5 @@
 ﻿<div class="menu-logo">
-	<div class="icon">
+	<div class="icon" id="@(section)">
 		<img src="icons/menu.svg" />
 	</div>
 	<div class="logo">
@@ -9,6 +9,16 @@
 	</div>
 </div>
 
-@code {
+<script>
+	$("#menu-nav").on("click", () => {
+		$("#side-nav").css("transform", "translateX(-248px)");
+	});
+	$("#menu-header").on("click", () => {
+		$("#side-nav").css("transform", "translateX(0)");
+	});
+</script>
 
+@code {
+	[Parameter]
+	public string section { get; set; } = "menu-header";
 }
