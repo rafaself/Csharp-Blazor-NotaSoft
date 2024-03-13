@@ -16,6 +16,40 @@
 	gap: 24px;
 }
 
-.header-1 img {
-	padding-bottom: 6px;
+.avatar, .icon {
+	cursor: pointer;
+	height: 40px;
+	width: 40px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.icon {
+	padding: 8px;
+	border-radius: 50%;
+}
+
+
+.icon img {
+	height: 24px;
+}
+
+.avatar img {
+	height: 32px;
+	border-radius: 50%;
+}
+
+.icon:hover {
+	background-color: #00000015;
+}
+
+.icon:active {
+	background-color: #00000030;
+}
+
+.avatar img:active {
+	box-sizing: content-box;
+	border: 1px solid #FF6600;
 }
