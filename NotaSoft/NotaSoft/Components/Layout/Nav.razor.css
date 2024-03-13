@@ -42,6 +42,10 @@
         background: var(--color-primary-30);
     }
 
+    .nav-item:active {
+        background: var(--color-primary-60);
+    }
+
 a {
     height: 100%;
     padding: 12px;
