@@ -1,0 +1,27 @@
+﻿.icon {
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    border-radius: 50%;
+}
+
+    .icon img {
+        height: 24px;
+    }
+
+    .icon:hover {
+        background-color: #00000015;
+    }
+
+    .icon:active {
+        background-color: #00000030;
+    }
+
+.logo img {
+    height: 32px;
+}
