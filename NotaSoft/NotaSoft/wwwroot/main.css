@@ -1,3 +1,7 @@
 ﻿body {
     background-color: #dfdfdf;
 }
+
+.main-content {
+    padding: 32px;
+}
