@@ -1,0 +1,29 @@
+﻿.card {
+    max-width: 548px;
+    background-color: var(--color-primary-60);
+    border-radius: 12px;
+}
+
+.btn-orange {
+    height: 36px;
+    width: 100%;
+    background-color: var(--color-primary);
+    border: 1px solid #EFEFEF;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #EFEFEF;
+}
+
+    .btn-orange:hover {
+        border-color: var(--color-primary-90);
+        box-shadow: 0 0 5px 1px var(--color-primary-90);
+    }
+
+    .btn-orange:active {
+        border-color: var(--color-primary);
+        box-shadow: 0 0 10px 1px var(--color-primary);
+
+    }
