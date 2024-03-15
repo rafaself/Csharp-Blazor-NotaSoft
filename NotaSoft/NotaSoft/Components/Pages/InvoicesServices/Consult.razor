@@ -1,54 +1,11 @@
 ﻿@page "/notas-servico/consultar"
+@using NotaSoft.Components.Views.InvoicesServices
 
 <PageTitle>Notas de Serviço - Consultar</PageTitle>
 
-<section id="filter-group">
-	<div class="filter-content">
-		<div for="issue-input-filter" class="filter-header-text">
-			Filtrar data de emissão
-		</div>
+<FilterGroup />
 
-		<div class="input-filter" id="issue-input-filter">
-			<input type="date" />
-		</div>
-	</div>
-
-	<div class="filter-content">
-		<div class="filter-header-text">
-			Status
-		</div>
-
-		<div class="input-filter" id="issue-input-filter">
-			<input type="checkbox" id="issued-checkbox" />
-			<label for="issued-checkbox">Emitido</label>
-		</div>
-
-		<div class="input-filter" id="issue-input-filter">
-			<input type="checkbox" id="charged-checkbox" />
-			<label for="charged-checkbox">Cobrança realizada</label>
-		</div>
-
-		<div class="input-filter" id="issue-input-filter">
-			<input type="checkbox" id="late-payment-checkbox" />
-			<label for="late-payment-checkbox">Pagamento em atraso</label>
-		</div>
-
-		<div class="input-filter" id="issue-input-filter">
-			<input type="checkbox" id="paid-checkbox" />
-			<label for="paid-checkbox">Pagamento realizado</label>
-		</div>
-	</div>
-
-	<div class="button-filter-content">
-		<button class="button-filter">
-			Aplicar filtros
-		</button>
-	</div>
-</section>
-
-<section id="dashboard">
-	Opa fi
-</section>
+<Dashboard />
 
 @code {
 
