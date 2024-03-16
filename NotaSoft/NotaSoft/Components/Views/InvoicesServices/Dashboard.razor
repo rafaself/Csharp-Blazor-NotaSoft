@@ -1,6 +1,67 @@
 ﻿<section id="dashboard">
-	Opa fi
+	<div class="chart-line">
+		<div class="chart-line-header">
+			<div class="section-1">
+				<div class="title-1">
+					Valor das notas
+				</div>
+				<div class="subtitle-1">
+					12/03/2022 até 12/09/2022
+				</div>
+			</div>
+
+			<div class="section-2">
+				<div>
+					<div class="title-2">
+						Média mensal
+					</div>
+					<div class="subtitle-2">
+						R$ 3054,23
+					</div>
+				</div>
+				<div>
+					<div class="title-2">
+						Média mensal
+					</div>
+					<div class="subtitle-2">
+						R$ 3054,23
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<canvas id="myChart" height="100"></canvas>
+	</div>
 </section>
+
+<script>
+	const ctx = document.getElementById('myChart');
+
+	new Chart(ctx, {
+		type: 'line',
+		data: {
+			labels: ['03/2023', '04/2023', '05/2023', '06/2023', '07/2023', '08/2023', '09/2023'],
+			datasets: [{
+				label: '# of Votes',
+				data: [12, 19, 13, 15, 12, 13, 12],
+				borderWidth: 2
+			}]
+		},
+		options: {
+			plugins: {
+				legend: {
+					display: false
+				}
+			},
+			scales: {
+				y: {
+					beginAtZero: true
+				}
+			}
+		}
+	});
+</script>
 
 @code {
 
