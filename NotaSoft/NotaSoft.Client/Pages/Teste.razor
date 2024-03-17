@@ -1,0 +1,17 @@
+@page "/bora"
+@rendermode InteractiveWebAssembly
+
+<h1>Bora</h1>
+
+<p>@number</p>
+
+<button @onclick="incrementar">Incrementar</button>
+
+@code {
+	int number;
+
+	private void incrementar()
+	{
+		number++;
+	}
+}
