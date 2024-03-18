@@ -56,6 +56,23 @@ a {
     color: #121212;
 }
 
+.nav-items-group {
+    background-color: var(--color-primary-30);
+    border-radius: 12px;
+}
+
+.nav-item-group {
+    padding-left: 16px;
+}
+
 .caret-icon {
     zoom: 0.8;
+}
+
+a[aria-expanded="true"] .caret-icon {
+    transform: rotate(90deg);
+}
+
+.nav-item:has(a[aria-expanded="true"] ) {
+    background-color: var(--color-primary-60);
 }
