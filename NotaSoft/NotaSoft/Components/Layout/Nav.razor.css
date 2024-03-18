@@ -29,6 +29,7 @@
     height: 48px;
     width: 100%;
     border-radius: 12px;
+    transition: border-radius 0.15s ease;
 }
 
     .nav-item.active, .nav-item.active:hover {
@@ -58,7 +59,7 @@ a {
 
 .nav-items-group {
     background-color: var(--color-primary-30);
-    border-radius: 12px;
+    border-radius: 0 0 12px 12px;
 }
 
 .nav-item-group {
@@ -67,6 +68,7 @@ a {
 
 .caret-icon {
     zoom: 0.8;
+    transition: transform 0.3s ease;
 }
 
 a[aria-expanded="true"] .caret-icon {
@@ -75,4 +77,5 @@ a[aria-expanded="true"] .caret-icon {
 
 .nav-item:has(a[aria-expanded="true"] ) {
     background-color: var(--color-primary-60);
+    border-radius: 12px 12px 0 0;
 }
