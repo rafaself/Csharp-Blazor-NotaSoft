@@ -1,36 +1,90 @@
 ﻿@page "/notas-servico/adicionar"
+@using System.ComponentModel.DataAnnotations
 
 <PageTitle>Notas de Serviço - Adicionar</PageTitle>
 
 <h3>Adicionar Nota Fiscal</h3>
 
-<div>conteudo</div>
+<hr>
 
-<EditForm Model="@InvoiceModel" OnValidSubmit="OnValidSubmit" FormName="opa">
+<EditForm 
+	Model="@InvoiceModel" 
+	OnValidSubmit="OnValidSubmit" 
+	OnInvalidSubmit="OnInvalidSubmit" 
+	FormName="AddInvoiceForm" 
+	id="add-invoice-form"
+>
+	<DataAnnotationsValidator />
+	<ValidationSummary />
 
-	<InputText @bind-Value="@InvoiceModel.Name"/>
+	<div class="form-content">
+		<div class="input-content">
+			<label for="name-input">Nome do cliente</label>
+			<InputText required id="name-input" class="form-input-text" @bind-Value="@InvoiceModel.Name" />
+		</div>
+		
+		<div class="input-content">
+			<label for="cpf-input">CPF</label>
+			<InputText required id="cpf-input" class="form-input-text" @bind-Value="@InvoiceModel.Cpf" />
+		</div>		
+		
+		<div class="input-content">
+			<label for="price-input">Preço</label>
+			<InputNumber required id="price-input" class="form-input-text" @bind-Value="@InvoiceModel.Price" />
+		</div>		
+		
+		<div class="input-content">
+			<label for="amount-input">Quantidade</label>
+			<InputNumber required id="amount-input" class="form-input-text" @bind-Value="@InvoiceModel.Amount" />
+		</div>
 
-	<button type="submit">Enviar</button>
+		<button type="submit" class="button-form mt-3">Adicionar nota</button>
+	</div>
 
 </EditForm>
 
-<label>@randomText</label>
+@formStatus
+
+<style>
+	#add-invoice-form {
+		display: flex;
+		justify-content: center;
+		margin-top: 32px;
+	}
+
+
+	.form-input-text {
+		border: 1px solid #00000080;
+		border-radius: 6px;
+		padding: 6px;
+	}
+
+	.form-input-text:focus {
+		outline: none;
+		box-shadow: 0 0 10px 1px var(--color-primary-60);
+		border-color: var(--color-primary-90);
+	}
+</style>
 
 @code {
-
-	public string randomText = "Texto inicial";
+	public string formStatus = "Status inicial";
 	public Invoice InvoiceModel = new();
 
 	public class Invoice
 	{
 		public string Name { get; set; } = string.Empty;
 		public string Cpf { get; set; } = string.Empty;
-		public int Amount { get; set; }
 		public double Price { get; set; }
+		public int Amount { get; set; }
 	}
 
 	public void OnValidSubmit()
 	{
-		randomText = "Texto aleatório";
+		formStatus = "Formulário válido";
+	}
+
+	public void OnInvalidSubmit()
+	{
+		formStatus = "Formulário inválido";
 	}
 }
