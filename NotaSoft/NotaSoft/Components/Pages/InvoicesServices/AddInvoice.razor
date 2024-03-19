@@ -1,0 +1,36 @@
+﻿@page "/notas-servico/adicionar"
+
+<PageTitle>Notas de Serviço - Adicionar</PageTitle>
+
+<h3>Adicionar Nota Fiscal</h3>
+
+<div>conteudo</div>
+
+<EditForm Model="@InvoiceModel" OnValidSubmit="OnValidSubmit" FormName="opa">
+
+	<InputText @bind-Value="@InvoiceModel.Name"/>
+
+	<button type="submit">Enviar</button>
+
+</EditForm>
+
+<label>@randomText</label>
+
+@code {
+
+	public string randomText = "Texto inicial";
+	public Invoice InvoiceModel = new();
+
+	public class Invoice
+	{
+		public string Name { get; set; } = string.Empty;
+		public string Cpf { get; set; } = string.Empty;
+		public int Amount { get; set; }
+		public double Price { get; set; }
+	}
+
+	public void OnValidSubmit()
+	{
+		randomText = "Texto aleatório";
+	}
+}

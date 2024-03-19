@@ -7,7 +7,7 @@
 	<div class="nav-content">
 
 		@* Home *@
-		<div class="nav-item active">
+		<div class="nav-item nav-link">
 			<a href="/">
 				<div class="icon">
 					<i class="bi bi-house-fill h5 me-3"></i>
@@ -34,7 +34,7 @@
 		</div>
 
 		<div class="collapse nav-items-group" id="collapseExample">
-			<div class="nav-item nav-item-group">
+			<div class="nav-item nav-item-group nav-link">
 				<a href="/notas-servico/consultar">
 					<div class="icon">
 						<i class="bi bi-graph-up h5 me-3"></i>
@@ -43,9 +43,9 @@
 						Dashboard
 					</div>
 				</a>
-			</div>			
-			
-			<div class="nav-item nav-item-group">
+			</div>
+
+			<div class="nav-item nav-item-group nav-link">
 				<a href="/notas-servico/lista">
 					<div class="icon">
 						<i class="bi bi-table h5 me-3"></i>
@@ -54,11 +54,22 @@
 						Lista de notas
 					</div>
 				</a>
+			</div>			
+			
+			<div class="nav-item nav-item-group nav-link">
+				<a href="/notas-servico/adicionar">
+					<div class="icon">
+						<i class="bi bi-file-earmark-plus h5 me-3"></i>
+					</div>
+					<div class="text">
+						Adicionar nota
+					</div>
+				</a>
 			</div>
 		</div>
 
 		@* Pendências *@
-		<div class="nav-item">
+		<div class="nav-item nav-link">
 			<a href="/">
 				<div class="icon">
 					<i class="bi bi-exclamation-triangle h5 me-3"></i>
@@ -71,7 +82,7 @@
 		</div>
 
 		@* Minha empresa *@
-		<div class="nav-item">
+		<div class="nav-item nav-link">
 			<a href="/">
 				<div class="icon">
 					<i class="bi bi-building h5 me-3"></i>
@@ -84,7 +95,7 @@
 		</div>
 
 		@* Meu plano *@
-		<div class="nav-item">
+		<div class="nav-item nav-link">
 			<a href="/">
 				<div class="icon">
 					<i class="bi bi-bag-check h5 me-3"></i>
@@ -102,5 +113,8 @@
 
 
 @code {
-
+	protected override void OnInitialized()
+	{
+		Console.WriteLine("opa fi");
+	}
 }
