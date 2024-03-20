@@ -5,56 +5,74 @@
 
 <h3>Lista de notas</h3>
 
+<hr>
+
 <table class="table table-striped table-hover table-bordered rounded-2 overflow-hidden">
 	<thead>
 		<tr>
 			<th scope="col">#Id</th>
 			<th scope="col">Nome</th>
 			<th scope="col">CPF</th>
-			<th scope="col">Preço un.</th>
+			<th scope="col">Preço un. (R$)</th>
 			<th scope="col">Quantidade</th>
-			<th scope="col">Valor total</th>
+			<th scope="col">Preço total (R$)</th>
 		</tr>
 
 	</thead>
 	<tbody class="table-group-divider">
-		@foreach (var invoice in invoices)
+		@foreach (var invoice in invoices!)
 		{
 			<tr>
 				<th scope="row">@invoice.Id</th>
-				<td>@invoice.Id</td>
 				<td>@invoice.Name</td>
 				<td>@invoice.Cpf</td>
 				<td>@invoice.Price</td>
 				<td>@invoice.Amount</td>
-				<td>@invoice.TotalValue</td>
+				<td>@invoice.TotalPrice</td>
 			</tr>
 		}
 	</tbody>
 </table>
 
+<style>
+
+hr {
+	margin-bottom: 32px;
+}
+
+</style>
+
 @code {
-	List<Invoice> invoices = [];
+	List<Invoice>? invoices = [];
 
 	public class Invoice
 	{
+		[JsonPropertyName("id")]
 		public int Id { get; set; }
+		[JsonPropertyName("name")]
 		public string Name { get; set; } = string.Empty;
+		[JsonPropertyName("cpf")]
 		public string Cpf { get; set; } = string.Empty;
+		[JsonPropertyName("price")]
 		public double Price { get; set; }
+		[JsonPropertyName("amount")]
 		public int Amount { get; set; }
-		public double TotalValue => Price * Amount;
+		public double TotalPrice => Price * Amount;
 	}
 
 	public async Task ListAllPosts()
 	{
 		var client = ClientFactory.CreateClient();
 
-		var response = await client.GetAsync("https://localhost:7184/Invoices");
+		var response = await client.GetAsync("http://localhost:5147/Invoices");
 
 		var jsonResponse = await response.Content.ReadAsStringAsync();
 
-		invoices = JsonSerializer.Deserialize<List<Invoice>>(jsonResponse) ?? [];
+		Console.WriteLine(jsonResponse);
+
+		invoices = JsonSerializer.Deserialize<List<Invoice>>(jsonResponse);
+
+		Console.WriteLine(invoices[0].Name);
 
 		StateHasChanged();
 	}
