@@ -1,9 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NotaSoftDb.Models;
 
 namespace NotaSoftDb;
 
 public class CustomDbContext : DbContext
 {
+	public DbSet<Invoice> Invoices { get; set; }
+
     public CustomDbContext()
     {
      
@@ -13,10 +16,10 @@ public class CustomDbContext : DbContext
 	{
 		var connectionString =
 			"User ID=root;" +
-			"Password=myPassword;" +
+			"Password=rafa123;" +
 			"Host=localhost;" +
 			"Port=5432;" +
-			"Database=myDataBase;";
+			"Database=entitystudy;";
 
 		optionsBuilder.UseNpgsql(connectionString);
 	}
