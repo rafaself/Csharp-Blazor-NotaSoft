@@ -1,0 +1,6 @@
+@NotaSoftApi_HostAddress = http://localhost:5147
+
+GET {{NotaSoftApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

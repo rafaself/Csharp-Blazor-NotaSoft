@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotaSoft", "NotaSoft\NotaSo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotaSoft.Client", "NotaSoft\NotaSoft.Client\NotaSoft.Client.csproj", "{E1B3CC6A-05B6-463A-BD14-FA1C4D721FB8}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotaSoftApi", "NotaSoftApi\NotaSoftApi.csproj", "{84B98C04-07C7-498A-9E22-C9406F4A2A08}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotaSoftDb", "NotaSoftDb\NotaSoftDb.csproj", "{531ABD8B-CE40-43C0-8B7C-C6E16C1CAE25}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{E1B3CC6A-05B6-463A-BD14-FA1C4D721FB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1B3CC6A-05B6-463A-BD14-FA1C4D721FB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1B3CC6A-05B6-463A-BD14-FA1C4D721FB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84B98C04-07C7-498A-9E22-C9406F4A2A08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84B98C04-07C7-498A-9E22-C9406F4A2A08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84B98C04-07C7-498A-9E22-C9406F4A2A08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84B98C04-07C7-498A-9E22-C9406F4A2A08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{531ABD8B-CE40-43C0-8B7C-C6E16C1CAE25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{531ABD8B-CE40-43C0-8B7C-C6E16C1CAE25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{531ABD8B-CE40-43C0-8B7C-C6E16C1CAE25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{531ABD8B-CE40-43C0-8B7C-C6E16C1CAE25}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
