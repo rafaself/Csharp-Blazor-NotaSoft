@@ -1,4 +1,5 @@
-﻿using NotaSoftDb.Repositories.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using NotaSoftDb.Repositories.Interfaces;
 
 namespace NotaSoftDb.Repositories;
 
@@ -15,4 +16,12 @@ public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : 
 	{
 		_dbContext.Add(entity);
 	}
+
+    public async Task<List<TEntity>> List()
+    {
+        return await _dbContext
+            .Set<TEntity>()
+            .AsNoTracking()
+            .ToListAsync();
+    }
 }
