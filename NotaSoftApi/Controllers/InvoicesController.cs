@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using NotaSoftDb.Models;
 using NotaSoftDb.UseCases.Invoice.ListInvoices;
+using NotaSoftDb.UseCases.InvoiceCases;
 
 namespace NotaSoftApi.Controllers;
 
@@ -16,4 +17,12 @@ public class InvoicesController(ILogger<InvoicesController> logger) : Controller
 	{
 		return await ListInvoices.Execute();
 	}
+
+	[HttpPost]
+	public async Task Post(Invoice invoice)
+	{
+		await CreateInvoice.Execute(invoice);
+	}
+
+
 }

@@ -20,22 +20,22 @@
 	<div class="form-content">
 		<div class="input-content">
 			<label for="name-input">Nome do cliente</label>
-			<InputText required id="name-input" class="form-input-text" @bind-Value="@InvoiceModel.Name" />
+			<InputText id="name-input" class="form-input-text" @bind-Value="@InvoiceModel.Name" />
 		</div>
 		
 		<div class="input-content">
 			<label for="cpf-input">CPF</label>
-			<InputText required id="cpf-input" class="form-input-text" @bind-Value="@InvoiceModel.Cpf" />
+			<InputText id="cpf-input" class="form-input-text" @bind-Value="@InvoiceModel.Cpf" />
 		</div>		
 		
 		<div class="input-content">
 			<label for="price-input">Preço</label>
-			<InputNumber required id="price-input" class="form-input-text" @bind-Value="@InvoiceModel.Price" />
+			<InputNumber id="price-input" class="form-input-text" @bind-Value="@InvoiceModel.Price" />
 		</div>		
 		
 		<div class="input-content">
 			<label for="amount-input">Quantidade</label>
-			<InputNumber required id="amount-input" class="form-input-text" @bind-Value="@InvoiceModel.Amount" />
+			<InputNumber id="amount-input" class="form-input-text" @bind-Value="@InvoiceModel.Amount" />
 		</div>
 
 		<button type="submit" class="button-form mt-3">Adicionar nota</button>
@@ -72,7 +72,9 @@
 
 	public class Invoice
 	{
+		[Required]
 		public string Name { get; set; } = string.Empty;
+		[Required]
 		public string Cpf { get; set; } = string.Empty;
 		public double Price { get; set; }
 		public int Amount { get; set; }
