@@ -8,7 +8,7 @@
 <hr>
 
 <EditForm 
-	Model="@InvoiceModel" 
+	Model="InvoiceModel" 
 	OnValidSubmit="OnValidSubmit" 
 	OnInvalidSubmit="OnInvalidSubmit" 
 	FormName="AddInvoiceForm" 
@@ -20,7 +20,7 @@
 	<div class="form-content">
 		<div class="input-content">
 			<label for="name-input">Nome do cliente</label>
-			<InputText id="name-input" class="form-input-text" @bind-Value="@InvoiceModel.Name" />
+			<InputText id="name-input" class="form-input-text" @bind-Value="@InvoiceModel!.Name" />
 		</div>
 		
 		<div class="input-content">
@@ -42,8 +42,6 @@
 	</div>
 
 </EditForm>
-
-@formStatus
 
 <style>
 	#add-invoice-form {
@@ -67,8 +65,10 @@
 </style>
 
 @code {
-	public string formStatus = "Status inicial";
-	public Invoice InvoiceModel = new();
+	[SupplyParameterFromForm]
+	public Invoice? InvoiceModel { get; set; }
+
+	protected override void OnInitialized() => InvoiceModel ??= new();
 
 	public class Invoice
 	{
@@ -82,11 +82,9 @@
 
 	public void OnValidSubmit()
 	{
-		formStatus = "Formulário válido";
 	}
 
 	public void OnInvalidSubmit()
 	{
-		formStatus = "Formulário inválido";
 	}
 }
