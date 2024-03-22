@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NotaSoft.Client\NotaSoft.Client.csproj" />
+    <PackageReference Include="Blazor.Bootstrap" Version="2.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.1" />
     <PackageReference Include="Microsoft.JSInterop" Version="8.0.3" />
   </ItemGroup>

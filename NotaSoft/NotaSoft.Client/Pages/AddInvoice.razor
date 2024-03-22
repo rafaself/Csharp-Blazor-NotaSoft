@@ -1,19 +1,18 @@
-ï»¿@page "/notas-servico/adicionar"
+@page "/notas-servico/adicionar"
+@rendermode InteractiveWebAssembly
 @using System.ComponentModel.DataAnnotations
 
-<PageTitle>Notas de ServiÃ§o - Adicionar</PageTitle>
+<PageTitle>Notas de Serviço - Adicionar</PageTitle>
 
 <h3>Adicionar Nota Fiscal</h3>
 
 <hr>
 
-<EditForm 
-	Model="InvoiceModel" 
-	OnValidSubmit="OnValidSubmit" 
-	OnInvalidSubmit="OnInvalidSubmit" 
-	FormName="AddInvoiceForm" 
-	id="add-invoice-form"
->
+<EditForm Model="InvoiceModel"
+		  OnValidSubmit="OnValidSubmit"
+		  OnInvalidSubmit="OnInvalidSubmit"
+		  FormName="AddInvoiceForm"
+		  id="add-invoice-form">
 	<DataAnnotationsValidator />
 	<ValidationSummary />
 
@@ -22,17 +21,17 @@
 			<label for="name-input">Nome do cliente</label>
 			<InputText id="name-input" class="form-input-text" @bind-Value="@InvoiceModel!.Name" />
 		</div>
-		
+
 		<div class="input-content">
 			<label for="cpf-input">CPF</label>
 			<InputText id="cpf-input" class="form-input-text" @bind-Value="@InvoiceModel.Cpf" />
-		</div>		
-		
+		</div>
+
 		<div class="input-content">
-			<label for="price-input">PreÃ§o</label>
+			<label for="price-input">Preço</label>
 			<InputNumber id="price-input" class="form-input-text" @bind-Value="@InvoiceModel.Price" />
-		</div>		
-		
+		</div>
+
 		<div class="input-content">
 			<label for="amount-input">Quantidade</label>
 			<InputNumber id="amount-input" class="form-input-text" @bind-Value="@InvoiceModel.Amount" />
@@ -42,6 +41,23 @@
 	</div>
 
 </EditForm>
+
+<Modal @ref="modal" Title="Modal title">
+    <BodyTemplate>
+        Modal body text goes here.
+    </BodyTemplate>
+    <FooterTemplate>
+        <Button Color="ButtonColor.Secondary" @onclick="OnHideModalClick">Close</Button>
+        <Button Color="ButtonColor.Primary">Save changes</Button>
+    </FooterTemplate>
+</Modal>
+
+<Button Color="ButtonColor.Primary" @onclick="OnShowModalClick">Show Modal</Button>
+
+@text
+
+<Button @onclick="Printar">Opa</Button>
+<Button @onclick="Printar">Vamo la fi</Button>
 
 <style>
 	#add-invoice-form {
@@ -57,18 +73,25 @@
 		padding: 6px;
 	}
 
-	.form-input-text:focus {
-		outline: none;
-		box-shadow: 0 0 10px 1px var(--color-primary-60);
-		border-color: var(--color-primary-90);
-	}
+		.form-input-text:focus {
+			outline: none;
+			box-shadow: 0 0 10px 1px var(--color-primary-60);
+			border-color: var(--color-primary-90);
+		}
 </style>
 
 @code {
 	[SupplyParameterFromForm]
 	public Invoice? InvoiceModel { get; set; }
+	public string text { get; set; } = "velho texto";
 
 	protected override void OnInitialized() => InvoiceModel ??= new();
+
+	public void Printar()
+	{
+		Console.WriteLine("OPA");
+		text = "novo texto";
+	}
 
 	public class Invoice
 	{
@@ -86,5 +109,18 @@
 
 	public void OnInvalidSubmit()
 	{
+		text = "vai";
+	}
+
+	private Modal modal = default!;
+
+	private async Task OnShowModalClick()
+	{
+		await modal.ShowAsync();
+	}
+
+	private async Task OnHideModalClick()
+	{
+		await modal.HideAsync();
 	}
 }
