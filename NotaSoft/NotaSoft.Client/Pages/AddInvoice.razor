@@ -42,22 +42,14 @@
 
 </EditForm>
 
-<Modal @ref="modal" Title="Modal title">
+<Modal @ref="modal" Title="Formulário inválido">
     <BodyTemplate>
-        Modal body text goes here.
+        Preencha todos os campos corretamente.
     </BodyTemplate>
     <FooterTemplate>
-        <Button Color="ButtonColor.Secondary" @onclick="OnHideModalClick">Close</Button>
-        <Button Color="ButtonColor.Primary">Save changes</Button>
+        <Button Color="ButtonColor.Secondary" @onclick="OnHideModalClick">Fechar</Button>
     </FooterTemplate>
 </Modal>
-
-<Button Color="ButtonColor.Primary" @onclick="OnShowModalClick">Show Modal</Button>
-
-@text
-
-<Button @onclick="Printar">Opa</Button>
-<Button @onclick="Printar">Vamo la fi</Button>
 
 <style>
 	#add-invoice-form {
@@ -103,13 +95,13 @@
 		public int Amount { get; set; }
 	}
 
-	public void OnValidSubmit()
+	public async Task OnInvalidSubmit()
 	{
+		await modal.ShowAsync();
 	}
 
-	public void OnInvalidSubmit()
+	public void OnValidSubmit()
 	{
-		text = "vai";
 	}
 
 	private Modal modal = default!;
