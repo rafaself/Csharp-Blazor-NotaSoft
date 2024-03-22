@@ -1,6 +1,8 @@
 @page "/notas-servico/adicionar"
 @rendermode InteractiveWebAssembly
 @using System.ComponentModel.DataAnnotations
+@inject HttpClient Http
+@inject AntiforgeryStateProvider Antiforgery
 
 <PageTitle>Notas de Serviço - Adicionar</PageTitle>
 
@@ -43,12 +45,12 @@
 </EditForm>
 
 <Modal @ref="modal" Title="Formulário inválido">
-    <BodyTemplate>
-        Preencha todos os campos corretamente.
-    </BodyTemplate>
-    <FooterTemplate>
-        <Button Color="ButtonColor.Secondary" @onclick="OnHideModalClick">Fechar</Button>
-    </FooterTemplate>
+	<BodyTemplate>
+		Preencha todos os campos corretamente.
+	</BodyTemplate>
+	<FooterTemplate>
+		<Button Color="ButtonColor.Secondary" @onclick="OnHideModalClick">Fechar</Button>
+	</FooterTemplate>
 </Modal>
 
 <style>
@@ -57,7 +59,6 @@
 		justify-content: center;
 		margin-top: 32px;
 	}
-
 
 	.form-input-text {
 		border: 1px solid #00000080;
@@ -75,14 +76,23 @@
 @code {
 	[SupplyParameterFromForm]
 	public Invoice? InvoiceModel { get; set; }
-	public string text { get; set; } = "velho texto";
+	private HttpClient httpClient;
 
-	protected override void OnInitialized() => InvoiceModel ??= new();
-
-	public void Printar()
+	protected override void OnInitialized()
 	{
-		Console.WriteLine("OPA");
-		text = "novo texto";
+		InvoiceModel ??= new();
+		httpClient = Http;
+	}
+
+	public async Task Printar()
+	{
+		var antiforgery = Antiforgery.GetAntiforgeryToken();
+		var request = new HttpRequestMessage(HttpMethod.Get, "Invoices");
+		request.Headers.Add("RequestVerificationToken", antiforgery.Value);
+		var response = await httpClient.SendAsync(request);
+		// var response = await client.SendAsync(request);
+		// var response = await httpClient.GetFromJsonAsync<List<Invoice>>("https://localhost:7184/Invoices");
+		Console.WriteLine("opa");
 	}
 
 	public class Invoice
@@ -97,6 +107,8 @@
 
 	public async Task OnInvalidSubmit()
 	{
+		await Printar();
+		Console.WriteLine("opa123");
 		await modal.ShowAsync();
 	}
 
